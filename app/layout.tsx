@@ -28,13 +28,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div style={{ float: 'left' }}>
+        <div style={{ display: 'flex' }}>
           <Sidemenu/>
-        </div>
 
-        <div style={{ float: 'left', marginLeft: '200px' }}>
-          <h1>aq morchas</h1>
-          {children}
+          <div style={{ float: 'left', marginLeft: '20px' }}>
+            {children}
+          </div>
         </div>
       </body>
     </html>

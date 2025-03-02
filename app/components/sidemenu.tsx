@@ -23,9 +23,9 @@ const Sidemenu: React.FC = () => {
       </button>
       <ul style={{ listStyleType: 'none', padding: 0 }}>
         <li>
-          <Link href="/home">
+          <Link href="/dashboard">
               <FaHome />
-              {isOpen && ' Home'}
+              {isOpen && 'Dashboard'}
           </Link>
         </li>
         <li>
