@@ -42,9 +42,8 @@ const Sidemenu: React.FC = () => {
               icon={FaChartBar}
               text="Reports"
               subItems={[
-                { href: '#', text: 'Products' },
-                { href: '#', text: 'Billing' },
-                { href: '#', text: 'Invoice' },
+                { href: '/reports/products', text: 'Products' },
+                { href: '/reports/userProfile', text: 'User Profile'},
               ]}
             />
             <MenuItem href="#" icon={FaHome} text="Kanban" />

@@ -31,7 +31,7 @@ export default function RootLayout({
         <div>
           <Sidemenu/>
 
-          <div>
+          <div className="p-4 sm:ml-64">
             {children}
           </div>
         </div>
