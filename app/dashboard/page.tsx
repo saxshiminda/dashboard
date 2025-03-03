@@ -113,23 +113,21 @@ const options = {
 
 const dashboard = () => {
   return (
-    <div className="p-4 sm:ml-64">
-      <div className="p-4 rounded-lg">
-        <div className="grid grid-cols-3 gap-4 mb-4">
-          <div className="flex items-center justify-center h-50 rounded-sm bg-gray-50 dark:bg-gray-800">
-            <Line data={LineChartData} options={options}/>
-          </div>
-          <div className="flex items-center justify-center h-50 rounded-sm bg-gray-50 dark:bg-gray-800">
-            <Pie data={PieChartData} options={options}/>
-          </div>
-          <div className="flex items-center justify-center h-50 rounded-sm bg-gray-50 dark:bg-gray-800">
-            <Doughnut data={DoughnutChartData} options={options}/>
-          </div>
+    <div className="p-4 rounded-lg">
+      <div className="grid grid-cols-3 gap-4 mb-4">
+        <div className="flex items-center justify-center h-50 rounded-sm bg-gray-50 dark:bg-gray-800">
+          <Line data={LineChartData} options={options}/>
         </div>
+        <div className="flex items-center justify-center h-50 rounded-sm bg-gray-50 dark:bg-gray-800">
+          <Pie data={PieChartData} options={options}/>
+        </div>
+        <div className="flex items-center justify-center h-50 rounded-sm bg-gray-50 dark:bg-gray-800">
+          <Doughnut data={DoughnutChartData} options={options}/>
+        </div>
+      </div>
 
-        <div className="flex items-center justify-center h-50 mb-4 rounded-sm bg-gray-50 dark:bg-gray-800 w-full">
-          <Bar data={BarChartData} options={options}/>
-        </div>
+      <div className="flex items-center justify-center h-50 mb-4 rounded-sm bg-gray-50 dark:bg-gray-800 w-full">
+        <Bar data={BarChartData} options={options}/>
       </div>
     </div>
   );
