@@ -28,10 +28,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div style={{ display: 'flex' }}>
+        <div>
           <Sidemenu/>
 
-          <div style={{ float: 'left', marginLeft: '20px' }}>
+          <div>
             {children}
           </div>
         </div>
