@@ -111,7 +111,7 @@ const options = {
   maintainAspectRatio: false,  // This will let the chart adjust its size
 };
 
-const dashboard = () => {
+export default function dashboard() {
   return (
     <div className="p-4 rounded-lg">
       <div className="grid grid-cols-3 gap-4 mb-4">
@@ -132,5 +132,3 @@ const dashboard = () => {
     </div>
   );
 };
-
-export default dashboard;

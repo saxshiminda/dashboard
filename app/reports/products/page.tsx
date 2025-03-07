@@ -40,13 +40,7 @@ export default function GettingStartedExample() {
             { accessor: 'a' },
         ]}
         // execute this callback when a row is clicked
-        onRowClick={({ record: { name, party, bornIn } }) =>
-            showNotification({
-            title: `Clicked on ${name}`,
-            message: `You clicked on ${name}, a ${party.toLowerCase()} president born in ${bornIn}`,
-            withBorder: true,
-        })
-      }
+        onRowClick={(row) => console.log(row)}
     />
   );
 }
