@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Dialog from '../../components/dialog';
+import { Input, Selector, TextArea } from '../../components/elements';
 
 export default function User() {
   const [toggle, setToggle] = useState(false);
@@ -30,7 +31,7 @@ export default function User() {
   };
 
   const handleSubmit = () => {
-    alert('ara,gtxov')
+    console.log(values.price)
   };
 
   return (
@@ -56,78 +57,49 @@ export default function User() {
       >
         <div className="grid gap-4 mb-4 grid-cols-2">
           <div className="col-span-2">
-            <label
-              htmlFor="name"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >
-              Name
-            </label>
-            <input
-              type="text"
+            <Input
+              label="Name"
               name="name"
-              id="name"
               value={values.name}
               onChange={handleInputChange}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-              placeholder="Type product name"
+              placeholder="Product name"
               required
             />
           </div>
           <div className="col-span-2 sm:col-span-1">
-            <label
-              htmlFor="price"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >
-              Salary
-            </label>
-            <input
-              type="number"
+            <Input
+              label="Price"
               name="price"
-              id="price"
+              type="number"
               value={values.price}
               onChange={handleInputChange}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-              placeholder="$2999"
+              placeholder="Product price"
               required
             />
           </div>
           <div className="col-span-2 sm:col-span-1">
-            <label
-              htmlFor="category"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >
-              Position
-            </label>
-            <select
-              id="category"
+            <Selector
+              label="Category"
               name="category"
               value={values.category}
+              options={[
+                { value: 'electronics', label: 'Electronics' },
+                { value: 'clothing', label: 'Clothing' },
+                { value: 'accessories', label: 'Accessories' },
+              ]}
               onChange={handleInputChange}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-            >
-              <option value="" selected>
-                Select position
-              </option>
-              <option value="Manager">Manager</option>
-              <option value="Operator">Operator</option>
-            </select>
+              required
+            />
           </div>
           <div className="col-span-2">
-            <label
-              htmlFor="description"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >
-              Description
-            </label>
-            <textarea
-              id="description"
+            <TextArea
+              label="Description"
               name="description"
-              rows={4}
               value={values.description}
               onChange={handleInputChange}
-              className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="Write product description here"
-            ></textarea>
+              placeholder="Product description"
+              required
+            />
           </div>
         </div>
       </Dialog>

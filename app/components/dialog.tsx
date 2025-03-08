@@ -20,7 +20,7 @@ export default function Dialog({ toggle, title, children, buttons, onClose, onOp
     } else {
       onClose();
     }
-  }, [toggle, onClose, onOpen]);
+  }, [toggle]); // maybe this should be [toggle, onOpen, onClose]?
 
   return (
     <>
