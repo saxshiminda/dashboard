@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import Dialog from '../../components/dialog';
+import Dialog from '@/app/components/dialog';
 import { Input, Selector, TextArea } from '../../components/elements';
 
 export default function User() {
