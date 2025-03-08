@@ -127,3 +127,19 @@ export function TextArea({
       </div>
     );
 }
+
+export function Button({
+    label,
+    onClick,
+    className = '',
+}: { label: string; onClick: () => void; className?: string }) {
+    return (
+      <button
+        type="button"
+        className={className}
+        onClick={onClick}
+      >
+        {label}
+      </button>
+    );
+}

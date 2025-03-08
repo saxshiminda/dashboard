@@ -51,8 +51,8 @@ export default function User() {
         onOpen={handleOpen}
         values={values}
         buttons={[
-          { label: 'Submit', onClick: handleSubmit },
-          { label: 'Cancel', onClick: handleClose },
+          { label: 'Save', onClick: handleSubmit },
+          { label: 'Close', onClick: handleClose },
         ]}
       >
         <div className="grid gap-4 mb-4 grid-cols-2">
