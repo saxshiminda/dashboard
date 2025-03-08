@@ -1,6 +1,7 @@
 import React from 'react';
 
 interface InputProps {
+  id?: string;
   label: string;
   name: string;
   type?: string;
@@ -9,6 +10,8 @@ interface InputProps {
   placeholder?: string;
   required?: boolean;
   className?: string;
+  onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void;
+  onClick?: (e: React.MouseEvent<HTMLInputElement>) => void;
 }
 
 interface SelectorProps {
@@ -32,6 +35,7 @@ interface TextAreaProps {
 }
 
 export function Input({
+  id,
   label,
   name,
   type = 'text',
@@ -40,6 +44,8 @@ export function Input({
   placeholder = '',
   required = false,
   className = '',
+  onFocus,
+  onClick,
 }: InputProps) {
   return (
     <div className={className}>
@@ -50,14 +56,16 @@ export function Input({
         {label}
       </label>
       <input
+        id={id}
         type={type}
         name={name}
-        id={name}
         value={value}
         onChange={onChange}
         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
         placeholder={placeholder}
         required={required}
+        onFocus={onFocus}
+        onClick={onClick}
       />
     </div>
   );

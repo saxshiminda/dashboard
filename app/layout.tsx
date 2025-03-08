@@ -42,6 +42,7 @@ export default function RootLayout({
             <MantineProvider defaultColorScheme="auto">{children}</MantineProvider>
           </div>
         </div>
+        <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
       </body>
     </html>
   );

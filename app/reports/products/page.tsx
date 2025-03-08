@@ -3,8 +3,9 @@
 import { Box } from '@mantine/core';
 import { DataTable } from 'mantine-datatable';
 import Dialog from '@/app/components/dialog';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Input, Selector, TextArea } from '../../components/elements';
+import 'flowbite';
 
 export default function GettingStartedExample() {
   const [toggle, setToggle] = useState(false);
@@ -14,6 +15,7 @@ export default function GettingStartedExample() {
     price: '',
     category: '',
     description: '',
+    datepicker: ''
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -36,8 +38,30 @@ export default function GettingStartedExample() {
     console.log(values.price)
   };
 
+  const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValues((prevValues) => ({
+      ...prevValues,
+      datepicker: e.target.value,
+    }));    
+  };
+
   return (
     <>
+      <div className="mb-4">
+        <Input
+          id='datepicker'
+          label="Date"
+          type="date"
+          name="datepicker"
+          value={values.datepicker}
+          onChange={handleDateChange}
+          className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+          required
+          onFocus={(e) => (e.target as HTMLInputElement).showPicker()}
+          onClick={(e) => (e.target as HTMLInputElement).showPicker()}
+        />
+      </div>
+      
       <DataTable
         withColumnBorders
         striped
@@ -83,6 +107,7 @@ export default function GettingStartedExample() {
             price: row.record.price.toString(),
             category: row.record.category,
             description: row.record.description,
+            datepicker: values.datepicker,
           });
 
           setToggle(true);
@@ -126,9 +151,9 @@ export default function GettingStartedExample() {
             value={values.category}
             onChange={handleInputChange}
             options={[
-              { value: '1', label: 'Electronics' },
-              { value: '2', label: 'Clothing' },
-              { value: '3', label: 'Books' },
+              { value: 'Electronics', label: 'Electronics' },
+              { value: 'Clothing', label: 'Clothing' },
+              { value: 'Books', label: 'Books' },
             ]}
             required
           />
