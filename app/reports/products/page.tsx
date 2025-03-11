@@ -49,16 +49,14 @@ export default function GettingStartedExample() {
     <>
       <div className="mb-4">
         <Input
-          id='datepicker'
-          label="Date"
           type="date"
           name="datepicker"
           value={values.datepicker}
           onChange={handleDateChange}
-          className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
           required
-          onFocus={(e) => (e.target as HTMLInputElement).showPicker()}
           onClick={(e) => (e.target as HTMLInputElement).showPicker()}
+          id='datepicker'
+          className="w-32 p-2.5 bg-gray-50 text-sm rounded-lg focus:ring-primary-600 dark:bg-gray-700 dark:placeholder-gray-400"
         />
       </div>
       
@@ -113,62 +111,66 @@ export default function GettingStartedExample() {
           setToggle(true);
         }}
       />
-
-    <Dialog
-      toggle={toggle}
-      title="Create New Product"
-      onClose={handleClose}
-      onOpen={handleOpen}
-      values={values}
-      buttons={[
-        { label: 'Save', onClick: handleSubmit },
-        { label: 'Close', onClick: handleClose },
-      ]}
-    >
-      <div className="grid gap-4 mb-4 grid-cols-2">
-        <div className="col-span-2">
-          <Input
-            label="Name"
-            name="name"
-            value={values.name}
-            onChange={handleInputChange}
-            required
-          />
+      
+      <Dialog
+        toggle={toggle}
+        title="Create New Product"
+        onClose={handleClose}
+        onOpen={handleOpen}
+        values={values}
+        buttons={[
+          { label: 'Save', onClick: handleSubmit },
+          { label: 'Close', onClick: handleClose },
+        ]}
+      >
+        <div className="grid gap-4 mb-4 grid-cols-2">
+          <div className="col-span-2">
+            <Input
+              label="Name"
+              name="name"
+              value={values.name}
+              onChange={handleInputChange}
+              required
+              className="w-full p-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+            />
+          </div>
+          <div>
+            <Input
+              label="Price"
+              name="price"
+              value={values.price}
+              onChange={handleInputChange}
+              required
+              className="w-full p-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+            />
+          </div>
+          <div>
+            <Selector
+              label="Category"
+              name="category"
+              value={values.category}
+              onChange={handleInputChange}
+              options={[
+                { value: 'Electronics', label: 'Electronics' },
+                { value: 'Clothing', label: 'Clothing' },
+                { value: 'Books', label: 'Books' },
+              ]}
+              required
+              className="w-full bg-gray-50  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+            />
+          </div>
+          <div className="col-span-2">
+            <TextArea
+              label="Description"
+              name="description"
+              value={values.description}
+              onChange={handleInputChange}
+              required
+              className="w-full p-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+            />
+          </div>
         </div>
-        <div>
-          <Input
-            label="Price"
-            name="price"
-            value={values.price}
-            onChange={handleInputChange}
-            required
-          />
-        </div>
-        <div>
-          <Selector
-            label="Category"
-            name="category"
-            value={values.category}
-            onChange={handleInputChange}
-            options={[
-              { value: 'Electronics', label: 'Electronics' },
-              { value: 'Clothing', label: 'Clothing' },
-              { value: 'Books', label: 'Books' },
-            ]}
-            required
-          />
-        </div>
-        <div className="col-span-2">
-          <TextArea
-            label="Description"
-            name="description"
-            value={values.description}
-            onChange={handleInputChange}
-            required
-          />
-        </div>
-      </div>
-    </Dialog>
+      </Dialog>
   </>
   );
 
