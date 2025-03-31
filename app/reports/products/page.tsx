@@ -6,6 +6,7 @@ import Dialog from '@/app/components/dialog';
 import React, { useState, useEffect } from 'react';
 import { Input, Selector, TextArea } from '../../components/elements';
 import 'flowbite';
+import "./test.css"
 
 export default function GettingStartedExample() {
   const [toggle, setToggle] = useState(false);
