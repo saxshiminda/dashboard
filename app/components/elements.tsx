@@ -2,7 +2,7 @@ import React from 'react';
 
 interface InputProps {
   id?: string;
-  label: string;
+  label?: string;
   name: string;
   type?: string;
   value?: string;
@@ -10,6 +10,7 @@ interface InputProps {
   placeholder?: string;
   required?: boolean;
   className?: string;
+  containerClass? : string,
   onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void;
   onClick?: (e: React.MouseEvent<HTMLInputElement>) => void;
 }
@@ -44,11 +45,12 @@ export function Input({
   placeholder = '',
   required = false,
   className = '',
+  containerClass = '',
   onFocus,
   onClick,
 }: InputProps) {
   return (
-    <div className={className}>
+    <div className={containerClass}>
       <label
         htmlFor={name}
         className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -61,7 +63,7 @@ export function Input({
         name={name}
         value={value}
         onChange={onChange}
-        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+        className={className}
         placeholder={placeholder}
         required={required}
         onFocus={onFocus}
